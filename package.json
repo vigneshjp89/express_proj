@@ -1,0 +1,36 @@
+{
+  "name": "express_proj",
+  "version": "1.0.0",
+  "description": "Express proj for oauth",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vigneshjp89/express_proj.git"
+  },
+  "keywords": [
+    "oauth",
+    "express",
+    "node",
+    "javascript",
+    "js"
+  ],
+  "author": "arkham_knight07",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vigneshjp89/express_proj/issues"
+  },
+  "homepage": "https://github.com/vigneshjp89/express_proj#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "debug": "^4.3.2",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.12"
+  }
+}
