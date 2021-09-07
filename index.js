@@ -32,10 +32,18 @@ app.get('/',function(req,res,next){
 //         reject("errror");
 //     });
 // }
+//app.use('/oauthservice',oauthapp);
 app.get('/authorize',async function(req,res){
     console.log(req.query);
     var htmldata="<p>empty string</p>";
-    res.send(await oauthapp.getAllOauthApps());
+    var response= await oauthapp.getAllOauthApps();
+    console.log("Data from success",response);
+    response.forEach(element => {
+        htmldata+="<p>Client_id: "+element.client_id+"</p><br/>";
+        htmldata+="<p>Client_secret"+element.client_secret+"</p><br/>";
+    });
+    res.send(htmldata);
+        
     // if(req.query!=null){
         
     //     res.send(resp);

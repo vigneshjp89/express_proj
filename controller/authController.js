@@ -1,20 +1,20 @@
 const dbservice=require('../services/dbservice.js');
 
-exports.getAllOauthApps= function(){
+exports.getAllOauthApps=async function(){
     
-    return new Promise((resolve,reject)=>{
+    return new Promise(async (resolve,reject)=>{
         
-        var db=dbservice.database;
-        var oauthCollection=db.collection("oauthapps");
-        oauthCollection.find().toArray().then(function(result){
-      //console.log("RESULT: "+result);
-        var outputJSON={
-            "isSuccess":true,
-            "data":result
-        }
-        console.log(outputJSON);
-        resolve(outputJSON);
-    }).catch((e)=>{reject(e)});
-    });
+        var data={};
+        console.log(dbservice);
+        await dbservice.connect(async err => {
+            const collection = await dbservice.db("oauthserver").collection("oauthapps");
+            //console.log(await collection.find().toArray());
+            data=await collection.find().toArray();
+            if(data==null){
+                reject({"error":"error in no collection"});
+            }
+            resolve(data);
+        });
+    }).catch(e=>{console.log(e)});
      //return res.json(movies);*
   }
